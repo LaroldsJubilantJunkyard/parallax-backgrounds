@@ -18,7 +18,7 @@ void HandleBackgroundScrolling(){
             // No need to move the background here
             // This will all be one color
             // Any motion wont be noticable
-            move_bkg(0,0);
+            SCX_REG = 0;
 
             break;
 
@@ -27,8 +27,8 @@ void HandleBackgroundScrolling(){
             // The interrupt should next trigger here
             LYC_REG=79;
 
-            // Move everything below on the background (until our next interrupt) back to the starting position
-            move_bkg(scrollValue>>7,0);
+            // Move everything below on the background (until our next interrupt)
+            SCX_REG = scrollValue>>7;
             
             break;
 
@@ -37,8 +37,8 @@ void HandleBackgroundScrolling(){
             // The interrupt should next trigger here
             LYC_REG=95;
 
-            // Move everything below on the background (until our next interrupt) back to the starting position
-            move_bkg(scrollValue>>5,0);
+            // Move everything below on the background (until our next interrupt)
+            SCX_REG = scrollValue>>5;
             
             break;
 
@@ -47,8 +47,8 @@ void HandleBackgroundScrolling(){
             // The interrupt should next trigger here
             LYC_REG=116;
 
-            // Move everything below on the background (until our next interrupt) back to the starting position
-            move_bkg(scrollValue>>3,0);
+            // Move everything below on the background (until our next interrupt)
+            SCX_REG = scrollValue>>3;
             
             break;
 
@@ -57,8 +57,8 @@ void HandleBackgroundScrolling(){
             // The interrupt should next trigger here
             LYC_REG=0;
 
-            // Move everything below on the background (until our next interrupt) back to the starting position
-            move_bkg(scrollValue,0);
+            // Move everything below on the background (until our next interrupt)
+            SCX_REG = scrollValue;
             
             break;
     }
